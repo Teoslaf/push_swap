@@ -43,7 +43,6 @@ static char	*ft_word(const char *str, int start, int end)
 	return (word);
 }
 
-
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -55,29 +54,23 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	index = -1;
 	split = malloc((c_words(s, c) + 1) * sizeof(char *));
-	if (!s || !split)
-		return (NULL);
-	while (i <= strlen(s))
+	if (!s || !(split))
+		return (0);
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && index < 0)
 			index = i;
-		else if ((s[i] == c || i == strlen(s)) && index >= 0)
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
 		{
 			split[j++] = ft_word(s, index, i);
 			index = -1;
 		}
 		i++;
 	}
-	split[j] = NULL;
-	if (!split[j])
-	{
-		while (j > 0)
-			free(split[--j]);
-		free(split);
-		return (NULL);
-	}
+	split[j] = 0;
 	return (split);
 }
+
 
 /*
 	c_words - Count the number of substrings in a string
