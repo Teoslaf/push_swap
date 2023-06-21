@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:54:09 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/17 16:23:55 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:11:38 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,46 +98,6 @@ void insert_sorted(Node **root, int value)
 		curr = curr->next;
 	}
 	insert_after(curr, value);
-}
-
-void push(Node **source, Node **destination)
-{
-	if (*source == NULL)
-		return; // No element to push
-
-	Node *top = *source;	   // Get the top element from source stack
-	*source = (*source)->next; // Update source stack
-
-	top->next = *destination; // Push the element to the destination stack
-	*destination = top;
-}
-void shiftUp(Node **stack)
-{
-	if (*stack == NULL || (*stack)->next == NULL)
-		return; // No need to shift if the stack is empty or has only one element
-
-	Node *last = *stack;
-	while (last->next != NULL)
-		last = last->next; // Find the last node
-
-	Node *first = *stack;	 // Get the first node
-	*stack = (*stack)->next; // Update the stack to remove the first node
-	last->next = first;		 // Make the first node the last node
-	first->next = NULL;		 // Set the next of the new last node to NULL
-}
-
-void shiftDown(Node **stack)
-{
-	if (*stack == NULL || (*stack)->next == NULL)
-		return; // No need to shift if the stack is empty or has only one element
-
-	Node *last = *stack;
-	while (last->next != NULL)
-		last = last->next; // Find the last node
-
-	last->next = *stack;	 // Make the last node point to the current first node
-	*stack = (*stack)->next; // Update the stack to remove the first node
-	last->next->next = NULL; // Set the next of the new last node to NULL
 }
 
 int main(int argc, char **argv)
