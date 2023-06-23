@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:54:09 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/21 17:11:38 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:52:22 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,6 @@ void insert_end(Node **root, int value)
 	while (curr->next != NULL)
 		curr = curr->next;
 	curr->next = new_node;
-}
-
-void deallocate(Node **root)
-{
-	Node *curr = *root;
-	while (curr != NULL)
-	{
-		Node *aux = curr;
-		curr = curr->next;
-		free(aux);
-	}
-	*root = NULL;
 }
 
 void sort_first_two(Node **root)

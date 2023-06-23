@@ -1,7 +1,7 @@
 SRCS	= push_swap.c stack_init.c swap.c push.c rotate.c reverse_rotate.c
 NAME	= push_swap
 CC	= gcc
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -g
 RM	= rm -f
 INCS	= libft
 LIBFT	= -Llibft -lft

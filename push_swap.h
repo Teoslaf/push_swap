@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:53:18 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/21 17:11:39 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:30:43 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_list
 {
 	int x;
+	int index;
 	struct s_list *next;
 
 } t_list;
@@ -34,6 +35,7 @@ void 	pa(t_list **stack_a, t_list **stack_b);
 void 	ra(t_list **stack_a);
 void 	rra(t_list **stack_a);
 void 	rr(t_list **stack_a, t_list **stack_b);
-
+void 	deallocate(t_list **root);
+void free_split(char **split);
 
 # endif
