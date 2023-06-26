@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:53:18 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/23 14:30:43 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:17:21 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 } t_list;
 
 void	createStack(char **argv, t_list **stack_a);
-void	printerror(char *str);
+void 	createStack_args(char **argv, t_list **stack_a);
 int		err_rep(t_list *stack_a, int nbr);
 void 	sa(t_list **stack_a);
 void 	pa(t_list **stack_a, t_list **stack_b);
@@ -36,6 +36,12 @@ void 	ra(t_list **stack_a);
 void 	rra(t_list **stack_a);
 void 	rr(t_list **stack_a, t_list **stack_b);
 void 	deallocate(t_list **root);
-void free_split(char **split);
+void 	free_split(char **split);
+void 	assign_index(t_list *stack_a);
+int	 	ft_list_size(t_list *begin_list);
+int		get_max_index(t_list *stack);
+int 	sorted(t_list *stack);
+void 	tiny_sort(t_list **stack);
+
 
 # endif

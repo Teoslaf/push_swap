@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:51:40 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/23 14:32:52 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:41:23 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,27 @@ void free_split(char **split)
 	free(split);
 }
 
-void simple_sort(t_list *stack);
+int	ft_list_size(t_list *begin_list)
 {
-	
+	if (begin_list == 0)
+		return (0);
+	else
+		return (1 + ft_list_size(begin_list->next));
 }
+
+void print_stack_with_indices(t_list *stack)
+{
+	t_list *ptr = stack;
+
+	printf("Stack with indices:\n");
+	while (ptr != NULL)
+	{
+		printf("Value: %d, Index: %d\n", ptr->x, ptr->index);
+		ptr = ptr->next;
+	}
+	printf("\n");
+}
+
 int main(int argc, char **argv)
 {
 	t_list *stack_a;
@@ -53,18 +70,22 @@ int main(int argc, char **argv)
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		createStack(argv, &stack_a);
-		print_stack(stack_a);
+		createStack_args(argv, &stack_a);
+		print_stack_with_indices(stack_a);
+		printf("max index:%d", get_max_index(stack_a));
 		free_split(argv);
 	}
 	else
 	{
 		createStack(argv + 1, &stack_a);
-		print_stack(stack_a);
+		print_stack_with_indices(stack_a);
+		printf("max index:%d \n", get_max_index(stack_a));
 	}
-
+	tiny_sort(&stack_a);
+	print_stack_with_indices(stack_a);
 	deallocate(&stack_a);
 	deallocate(&stack_b);
 
 	return 0;
 }
+

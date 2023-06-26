@@ -1,4 +1,4 @@
-SRCS	= push_swap.c stack_init.c swap.c push.c rotate.c reverse_rotate.c
+SRCS	= push_swap.c stack_init.c swap.c push.c rotate.c reverse_rotate.c tiny_sort.c
 NAME	= push_swap
 CC	= gcc
 FLAGS	= -Wall -Werror -Wextra -g
@@ -21,6 +21,5 @@ re: fclean all
 
 runlibft:
 	make -C libft
-
-
+	
 .PHONY: all re clean fclean

@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:44:13 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/21 15:52:52 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:48:43 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void push(t_list **source, t_list **destination)
 {
 	if (*source == NULL)
-		return; // No element to push
+		return;
 
-	t_list *top = *source;	   // Get the top element from source stack
-	*source = (*source)->next; // Update source stack
+	t_list *top = *source;	
+	*source = (*source)->next;
 
-	top->next = *destination; // Push the element to the destination stack
+	top->next = *destination;
 	*destination = top;
 }
 
