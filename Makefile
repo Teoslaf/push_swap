@@ -1,4 +1,4 @@
-SRCS	= push_swap.c stack_init.c swap.c push.c rotate.c reverse_rotate.c tiny_sort.c
+SRCS	= push_swap.c stack_init.c swap.c push.c rotate.c reverse_rotate.c tiny_sort.c big_sort.c
 NAME	= push_swap
 CC	= gcc
 FLAGS	= -Wall -Werror -Wextra -g

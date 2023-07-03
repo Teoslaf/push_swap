@@ -6,21 +6,20 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:57:47 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/26 12:58:49 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:20:58 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-void assign_index(t_list *stack_a)
+void	assign_index(t_list *stack_a)
 {
-	t_list *ptr;
-	t_list *highest;
-	int x;
-	int stack_size = ft_list_size(stack_a);
+	t_list	*ptr;
+	t_list	*highest;
+	int		x;
+	int		stack_size;
 
+	stack_size = ft_list_size(stack_a);
 	while (--stack_size > 0)
 	{
 		ptr = stack_a;
@@ -43,21 +42,29 @@ void assign_index(t_list *stack_a)
 			highest->index = stack_size;
 	}
 }
-void createStack(char **argv, t_list **stack_a)
+void	create_stack(char **argv, t_list **stack_a)
 {
-	*stack_a = NULL;
-	long nbr;
-	int i = 0;
+	long	nbr;
+	int		i;
+	char	*arg;
+	int		j;
+	t_list	*new_node;
 
+	*stack_a = NULL;
+	i = 0;
 	while (argv[i] != NULL)
 	{
-		char *arg = argv[i];
-		int j = 0;
-
+		// Count the number of arguments
+		i++;
+	}
+	while (i > 0)
+	{
+		i--;
+		arg = argv[i];
+		j = 0;
 		// Check if the argument starts with a minus sign
-		if (arg[j] == '-' && ft_isdigit(arg[j + 1]))
+		if (arg[j] == '-')
 			j++;
-
 		while (arg[j] != '\0')
 		{
 			if (!ft_isdigit(arg[j]))
@@ -78,29 +85,36 @@ void createStack(char **argv, t_list **stack_a)
 			deallocate(stack_a);
 			exit(0);
 		}
-		t_list *new_node = malloc(sizeof(t_list));
+		new_node = malloc(sizeof(t_list));
 		new_node->x = atoi(arg);
 		new_node->next = *stack_a;
 		*stack_a = new_node;
-		i++;
 	}
-		assign_index(*stack_a);
+	assign_index(*stack_a);
 }
-void createStack_args(char **argv, t_list **stack_a)
+void	create_stack_args(char **argv, t_list **stack_a)
 {
-	*stack_a = NULL;
-	long nbr;
-	int i = 0;
+	long	nbr;
+	int		i;
+	char	*arg;
+	int		j;
+	t_list	*new_node;
 
+	*stack_a = NULL;
+	i = 0;
 	while (argv[i] != NULL)
 	{
-		char *arg = argv[i];
-		int j = 0;
-
+		// Count the number of arguments
+		i++;
+	}
+	while (i > 0)
+	{
+		i--;
+		arg = argv[i];
+		j = 0;
 		// Check if the argument starts with a minus sign
 		if (arg[j] == '-')
 			j++;
-
 		while (arg[j] != '\0')
 		{
 			if (!ft_isdigit(arg[j]))
@@ -124,15 +138,15 @@ void createStack_args(char **argv, t_list **stack_a)
 			free_split(argv);
 			exit(0);
 		}
-		t_list *new_node = malloc(sizeof(t_list));
+		new_node = malloc(sizeof(t_list));
 		new_node->x = atoi(arg);
 		new_node->next = *stack_a;
 		*stack_a = new_node;
-		i++;
 	}
-		assign_index(*stack_a);
+	assign_index(*stack_a);
 }
-t_list *find_last(t_list *head)
+
+t_list	*find_last(t_list *head)
 {
 	if (NULL == head)
 		return (NULL);
@@ -140,27 +154,30 @@ t_list *find_last(t_list *head)
 		head = head->next;
 	return (head);
 }
-int err_rep(t_list *stack_a, int nbr)
+int	err_rep(t_list *stack_a, int nbr)
 {
-	if (stack_a == NULL)
-		return 0;
+	t_list	*a;
 
-	t_list *a = stack_a;
+	if (stack_a == NULL)
+		return (0);
+	a = stack_a;
 	while (a)
 	{
 		if (a->x == nbr)
-			return 1;
+			return (1);
 		a = a->next;
 	}
-	return 0;
+	return (0);
 }
-
 void deallocate(t_list **root)
 {
-	t_list *curr = *root;
+	t_list	*curr;
+	t_list	*aux;
+
+	curr = *root;
 	while (curr != NULL)
 	{
-		t_list *aux = curr;
+		aux = curr;
 		curr = curr->next;
 		free(aux);
 	}

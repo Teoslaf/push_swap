@@ -6,33 +6,36 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:51:40 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/26 14:41:23 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:37:24 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_stack(t_list *stack)
+void	print_stack(t_list *stack)
 {
-	t_list *curr = stack;
+	t_list	*curr;
+
+	curr = stack;
 	while (curr != NULL)
 	{
 		printf("%d\n", curr->x);
 		curr = curr->next;
 	}
 }
-void free_split(char **split)
-{
-	if (split == NULL)
-		return;
 
-	int i = 0;
+void	free_split(char **split)
+{
+	int	i;
+
+	if (split == NULL)
+		return ;
+	i = 0;
 	while (split[i] != NULL)
 	{
 		free(split[i]);
 		i++;
 	}
-
 	free(split);
 }
 
@@ -44,10 +47,11 @@ int	ft_list_size(t_list *begin_list)
 		return (1 + ft_list_size(begin_list->next));
 }
 
-void print_stack_with_indices(t_list *stack)
+void	print_stack_with_indices(t_list *stack)
 {
-	t_list *ptr = stack;
+	t_list	*ptr;
 
+	ptr = stack;
 	printf("Stack with indices:\n");
 	while (ptr != NULL)
 	{
@@ -56,36 +60,35 @@ void print_stack_with_indices(t_list *stack)
 	}
 	printf("\n");
 }
-
-int main(int argc, char **argv)
+void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	if (ft_list_size(*stack_a) <= 5)
+		tiny_sort(stack_a, stack_b);
+	else
+		radix_sort(stack_a, stack_b);
+}
+
+int	main(int argc, char **argv)
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
-
 	if (argc == 1 || (argc == 2 && (!argv[1][0])))
-		return 1;
+		return (1);
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		createStack_args(argv, &stack_a);
-		print_stack_with_indices(stack_a);
-		printf("max index:%d", get_max_index(stack_a));
+		create_stack_args(argv, &stack_a);
 		free_split(argv);
 	}
 	else
 	{
-		createStack(argv + 1, &stack_a);
-		print_stack_with_indices(stack_a);
-		printf("max index:%d \n", get_max_index(stack_a));
+		create_stack(argv + 1, &stack_a);
 	}
-	tiny_sort(&stack_a);
-	print_stack_with_indices(stack_a);
+	sort_stack(&stack_a, &stack_b);
 	deallocate(&stack_a);
 	deallocate(&stack_b);
-
-	return 0;
+	return (0);
 }
-
