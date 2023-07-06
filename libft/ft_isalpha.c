@@ -6,11 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:21:28 by ttaneski          #+#    #+#             */
-/*   Updated: 2022/12/05 11:14:20 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:02:40 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

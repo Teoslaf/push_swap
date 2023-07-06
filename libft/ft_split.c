@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:47:00 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/06/19 13:54:21 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:05:09 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	**ft_split(char const *s, char c)
 	split[j] = 0;
 	return (split);
 }
-
 
 /*
 	c_words - Count the number of substrings in a string

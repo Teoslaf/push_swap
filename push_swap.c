@@ -6,23 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:51:40 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/07/03 17:37:24 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:39:46 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_list *stack)
-{
-	t_list	*curr;
-
-	curr = stack;
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->x);
-		curr = curr->next;
-	}
-}
 
 void	free_split(char **split)
 {
@@ -47,25 +35,13 @@ int	ft_list_size(t_list *begin_list)
 		return (1 + ft_list_size(begin_list->next));
 }
 
-void	print_stack_with_indices(t_list *stack)
-{
-	t_list	*ptr;
-
-	ptr = stack;
-	printf("Stack with indices:\n");
-	while (ptr != NULL)
-	{
-		printf("Value: %d, Index: %d\n", ptr->x, ptr->index);
-		ptr = ptr->next;
-	}
-	printf("\n");
-}
 void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_list_size(*stack_a) <= 5)
 		tiny_sort(stack_a, stack_b);
-	else
-		radix_sort(stack_a, stack_b);
+	else if (sorted(*stack_a) == 1)
+		return ;
+	radix_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -84,9 +60,7 @@ int	main(int argc, char **argv)
 		free_split(argv);
 	}
 	else
-	{
 		create_stack(argv + 1, &stack_a);
-	}
 	sort_stack(&stack_a, &stack_b);
 	deallocate(&stack_a);
 	deallocate(&stack_b);

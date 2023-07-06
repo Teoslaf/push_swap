@@ -6,11 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:57:12 by ttaneski          #+#    #+#             */
-/*   Updated: 2022/12/05 12:57:15 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:03:20 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

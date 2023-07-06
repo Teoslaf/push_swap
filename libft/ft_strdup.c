@@ -6,11 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:54:38 by ttaneski          #+#    #+#             */
-/*   Updated: 2022/12/08 12:19:34 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:04:21 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

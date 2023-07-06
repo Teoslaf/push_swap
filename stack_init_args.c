@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   stack_init_args.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:57:47 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/07/04 17:04:46 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:06:00 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	deallocate_stack(char **argv, t_list **stack_a)
+void	deallocate_stack_args(char **argv, t_list **stack_a)
 {
-	int	i;
-
-	i = 0;
-	while (argv[i] != NULL)
-		i++;
-	ft_putstr_fd("Error \n", 1);
 	deallocate(stack_a);
+	ft_putstr_fd("Error \n", 1);
+	free_split(argv);
 	exit(0);
 }
 
-void	push_to_stack(char *arg, t_list **stack_a)
+void	push_to_stack_args(char *arg, t_list **stack_a)
 {
 	t_list	*new_node;
 
@@ -35,7 +31,7 @@ void	push_to_stack(char *arg, t_list **stack_a)
 	*stack_a = new_node;
 }
 
-void	validate_arguments(char *arg, t_list **stack_a, char **argv)
+void	validate_arguments_args(char *arg, t_list **stack_a, char **argv)
 {
 	long	nbr;
 	int		j;
@@ -49,15 +45,15 @@ void	validate_arguments(char *arg, t_list **stack_a, char **argv)
 		if (!ft_isdigit(arg[j]) || (nbr) > INT_MAX || nbr < INT_MIN
 			|| err_rep(*stack_a, (int)nbr))
 		{
-			deallocate_stack(argv, stack_a);
+			deallocate_stack_args(argv, stack_a);
 			return ;
 		}
 		j++;
 	}
-	push_to_stack(arg, stack_a);
+	push_to_stack_args(arg, stack_a);
 }
 
-void	create_stack(char **argv, t_list **stack_a)
+void	create_stack_args(char **argv, t_list **stack_a)
 {
 	int		i;
 	char	*arg;
@@ -70,7 +66,7 @@ void	create_stack(char **argv, t_list **stack_a)
 	{
 		i--;
 		arg = argv[i];
-		validate_arguments(arg, stack_a, argv);
+		validate_arguments_args(arg, stack_a, argv);
 	}
 	assign_index(*stack_a);
 }

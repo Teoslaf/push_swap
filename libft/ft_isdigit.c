@@ -6,11 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:26:36 by ttaneski          #+#    #+#             */
-/*   Updated: 2022/12/08 12:25:02 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:03:16 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

@@ -6,11 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:49:41 by ttaneski          #+#    #+#             */
-/*   Updated: 2022/12/08 12:11:36 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:03:15 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

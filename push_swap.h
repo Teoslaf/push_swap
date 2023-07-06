@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:53:18 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/07/03 17:34:35 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 14:18:42 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void				radix_sort(t_list **stack_a, t_list **stack_b);
 int					sorted(t_list *stack);
 int					get_distance(t_list **stack, int index);
 int					get_min(t_list **stack, int val);
+void				sort_three(t_list **stack_a);
+t_list				*find_highest(t_list *stack_a);
+long				ft_atol(const char *str);
+void				assign_index(t_list *stack_a);
 
 void				sa(t_list **stack_a);
 void				sb(t_list **stack_b);

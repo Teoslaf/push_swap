@@ -6,11 +6,11 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:52:06 by ttaneski          #+#    #+#             */
-/*   Updated: 2022/12/08 12:48:27 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:03:18 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isprint(int c)
 {
