@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:51:40 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/07/06 16:39:46 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:21:31 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_list_size(*stack_a) <= 5)
 		tiny_sort(stack_a, stack_b);
-	else if (sorted(*stack_a) == 1)
-		return ;
-	radix_sort(stack_a, stack_b);
+	else 
+		radix_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
